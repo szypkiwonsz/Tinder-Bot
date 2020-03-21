@@ -1,125 +1,86 @@
 from selenium import webdriver
 from time import sleep
-from secrets import email, password
+from login_buttons import TinderLogin, FacebookLogin
+from popups import TinderPopups
+from functions import TinderFunctions
 
 
-class TinderBot:
+class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
     def __init__(self):
         self.driver = webdriver.Chrome()
 
+    # Login to tinder which includes Facebook login attempt.
     def login(self):
         self.driver.get("https://tinder.com/app")
-
         sleep(6)
 
-        more_options_btn = self.driver.find_element_by_xpath(
-            '//*[@id="modal-manager"]/div/div/div/div/div[3]/span/button')
-        more_options_btn.click()
-
-        sleep(2)
-
+        # First try with hidden Facebook login button.
+        self.more_option_btn_click()
+        sleep(1)
         try:
-            fb_btn = self.driver.find_element_by_xpath(
-                '//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[3]/button/span[2]')
-            fb_btn.click()
-
-            sleep(2)
-
+            self.more_option_fb_btn_click()
             try:
+                # Checking if the user is already logged in to the site.
                 self.tinder()
             except Exception:
+                # If not, Facebook login attempt.
                 self.login_facebook()
                 self.tinder()
 
+        # If the selected button has not been found, try logging in again with a different button setting.
         except Exception:
-            exit_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/button')
-            exit_btn.click()
-
-            sleep(2)
-
-            login_btn = self.driver.find_element_by_xpath(
-                '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button')
-            login_btn.click()
-
-            sleep(2)
-
+            self.account_recovery_exit_btn()
+            self.login_btn()
             try:
-                fb_btn = self.driver.find_element_by_xpath(
-                    '//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[2]/button')
-                fb_btn.click()
-
-                sleep(2)
-
+                self.fb_btn()
                 try:
                     self.tinder()
                 except Exception:
                     self.login_facebook()
                     self.tinder()
-
             except Exception:
+                # If the Facebook login button was not found, it displays a message.
                 print("Try again after 30 seconds.")
 
     def login_facebook(self):
-
+        # Changing the window to the login window via Facebook
         base_window = self.driver.window_handles[0]
         self.driver.switch_to_window(self.driver.window_handles[1])
 
-        email_in = self.driver.find_element_by_xpath('//*[@id="email"]')
-        email_in.send_keys(email)
-
-        password_in = self.driver.find_element_by_xpath('//*[@id="pass"]')
-        password_in.send_keys(password)
-
-        fb_btn = self.driver.find_element_by_xpath('//*[@id="u_0_0"]')
-        fb_btn.click()
-
-        sleep(2)
-
+        self.fb_email_in()
+        self.fb_password_in()
+        self.fb_login_btn()
+        # Changing the window to the main window
         self.driver.switch_to_window(base_window)
 
     def tinder(self):
-
         sleep(6)
         try:
-            localization_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/'
-                                                                 'button[1]')
-            localization_btn.click()
+            self.tinder_localization()
         except Exception:
+            # If no location button is found, display the message.
             print("Wrong email or password!")
 
-        sleep(2)
-
-        notification_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/'
-                                                             'button[2]')
-        notification_btn.click()
-
-        sleep(2)
+        self.tinder_notifications()
 
     def like(self):
-
         while True:
-
             try:
-                like_btn = self.driver.find_element_by_xpath(
-                    '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button')
-                like_btn.click()
+                sleep(0.5)
+                self.swipe_right()
             except Exception:
                 try:
+                    sleep(0.5)
                     self.keep_going()
                 except Exception:
+                    sleep(0.5)
                     self.popup_start_screen()
-
-    def keep_going(self):
-        keep_going_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager-canvas"]/div/div/div[1]/div/div[3]/a')
-        keep_going_btn.click()
-
-    def popup_start_screen(self):
-        keep_going_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button[2]')
-        keep_going_btn.click()
 
 
 if __name__ == "__main__":
     bot = TinderBot()
     bot.login()
-    bot.like()
-
+    try:
+        bot.like()
+    except Exception:
+        bot.verify_email()
