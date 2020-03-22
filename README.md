@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 ChromeDriver
 
 ```
-Download the current stable relase from - http://chromedriver.chromium.org/ [Python 3.8](https://www.python.org/)
+Download the current stable relase from - http://chromedriver.chromium.org/ [a link](https://github.com/user/repo/blob/branch/other_file.md)
 ```
 ```
 Unzip file, copy and paste "chromedriver.exe" to project folder where tinder_bot.py is
