@@ -21,7 +21,7 @@ Unzip file, copy and paste "chromedriver.exe" to project folder where tinder_bot
 Google Chrome
 
 ```
-Update to the lates version or get the current one from - https://www.google.com/chrome/
+Update to the latest version or get the current one from - https://www.google.com/chrome/
 ```
 ---
 
