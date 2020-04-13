@@ -83,4 +83,14 @@ if __name__ == "__main__":
     try:
         bot.like()
     except Exception:
-        bot.verify_email()
+        try:
+            bot.verify_email()
+            bot.like()
+        except Exception:
+            try:
+                bot.passport()
+                bot.like()
+            except Exception:
+                bot.cookies()
+                bot.passport()
+                bot.like()
