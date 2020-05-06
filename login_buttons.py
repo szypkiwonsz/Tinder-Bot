@@ -4,13 +4,13 @@ from secrets import email, password
 class TinderLogin:
 
     def more_option_btn_click(self):
-        more_options_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/'
-                                                             'button')
+        more_options_btn = self.driver.find_element_by_xpath(
+            '//*[@id="modal-manager"]/div/div/div/div/div[3]/span/button')
         more_options_btn.click()
 
     def more_option_fb_btn_click(self):
-        fb_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[3]/button/'
-                                                   'span[2]')
+        fb_btn = self.driver.find_element_by_xpath(
+            '//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[3]/button/span[2]')
         fb_btn.click()
 
     def account_recovery_exit_btn(self):
@@ -18,8 +18,8 @@ class TinderLogin:
         exit_btn.click()
 
     def login_btn(self):
-        login_btn = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/'
-                                                      'div[1]/div[2]/div/button')
+        login_btn = self.driver.find_element_by_xpath(
+            '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button')
         login_btn.click()
 
     def fb_btn(self):
