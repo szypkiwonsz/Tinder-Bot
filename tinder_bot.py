@@ -66,14 +66,14 @@ class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
     def like(self):
         while True:
             try:
-                sleep(0.5)
+                sleep(0.4)
                 self.swipe_right()
             except Exception:
                 try:
-                    sleep(0.5)
+                    sleep(0.4)
                     self.keep_going()
                 except Exception:
-                    sleep(0.5)
+                    sleep(0.4)
                     self.popup_start_screen()
 
 
