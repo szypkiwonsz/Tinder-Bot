@@ -28,5 +28,5 @@ class TinderPopups:
         no_thank_btn.click()
 
     def cookies(self):
-        agree_btn = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[3]/div/div/div[1]/button')
+        agree_btn = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/div/div[1]/button')
         agree_btn.click()
