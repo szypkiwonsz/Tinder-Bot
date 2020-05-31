@@ -14,7 +14,7 @@ class TinderLogin:
         fb_btn.click()
 
     def account_recovery_exit_btn(self):
-        exit_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/button')
+        exit_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button')
         exit_btn.click()
 
     def login_btn(self):
