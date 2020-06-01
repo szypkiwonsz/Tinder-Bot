@@ -80,6 +80,7 @@ class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
 if __name__ == "__main__":
     bot = TinderBot()
     bot.login()
+    sleep(2)
     try:
         bot.like()
     except Exception:
