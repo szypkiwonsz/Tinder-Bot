@@ -37,13 +37,19 @@ pip install -r requirements.txt
 A step by step series of examples that tell you how to run a bot
 
 ```
+Download project
+```
+```
+Install requirements
+```
+```
 Fill in your Facebook login details in the secrets.py file
 ```
----
-Run a bot
-
 ```
-python tinder_bot.py
+Open terminal with choosen folder "Tinder-Bot>"
+```
+```
+Type: "python tinder_bot.py", to run a bot
 ```
 ---
 ## Built With
