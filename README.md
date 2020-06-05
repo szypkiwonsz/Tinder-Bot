@@ -25,10 +25,10 @@ Update to the latest version or get the current one from - https://www.google.co
 ```
 ---
 
-selenium
+Libraries and Packages
 
 ```
-pip install selenium
+pip install -r requirements.txt
 ```
 ---
 
