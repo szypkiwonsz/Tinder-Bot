@@ -49,7 +49,7 @@ Fill in your Facebook login details in the secrets.py file
 Open terminal with choosen folder "Tinder-Bot>"
 ```
 ```
-Type: "python tinder_bot.py", to run a bot
+Type "python tinder_bot.py", to run a bot
 ```
 ---
 ## Built With
