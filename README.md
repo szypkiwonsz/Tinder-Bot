@@ -1,6 +1,6 @@
 # Tinder-Bot
 
-A simple tinder bot written in Python. The bot automatically swipe right for you. very simply built, can be extended with more functionality.
+A simple tinder bot written in Python. The bot automatically swipe right for you. Very simply built, can be extended with more functionality.
 
 ## Getting Started
 
