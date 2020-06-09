@@ -1,3 +1,6 @@
+from time import sleep
+
+
 class TinderPopups:
 
     def tinder_notifications(self):
@@ -9,6 +12,14 @@ class TinderPopups:
         localization_btn = self.driver.find_element_by_xpath(
             '//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
         localization_btn.click()
+
+    def send_message(self, message):
+        message_text_area = self.driver.find_element_by_xpath('//*[@id="chat-text-area"]')
+        message_text_area.send_keys(message)
+        sleep(0.2)
+        send_message_btn = self.driver.find_element_by_xpath(
+            '//*[@id="modal-manager-canvas"]/div/div/div[1]/div/div[3]/div[3]/form/button')
+        send_message_btn.click()
 
     def keep_going(self):
         keep_going_btn = self.driver.find_element_by_xpath(
