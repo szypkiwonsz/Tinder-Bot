@@ -45,21 +45,20 @@ class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
     def login_facebook(self):
         # Changing the window to the login window via Facebook
         base_window = self.driver.window_handles[0]
-        self.driver.switch_to_window(self.driver.window_handles[1])
+        self.driver.switch_to.window(self.driver.window_handles[1])
 
         self.fb_email_in()
         self.fb_password_in()
         self.fb_login_btn()
         # Changing the window to the main window
-        self.driver.switch_to_window(base_window)
+        self.driver.switch_to.window(base_window)
 
     def tinder(self):
         sleep(6)
         try:
             self.tinder_localization()
         except Exception:
-            # If no location button is found, display the message.
-            print("Wrong email or password!")
+            pass
 
         self.tinder_notifications()
 
