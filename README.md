@@ -1,6 +1,6 @@
 # Tinder-Bot
 
-A simple tinder bot written in Python. The bot automatically swipe right for you. very simply built, can be extended with more functionality.
+A simple tinder bot written in Python. The bot automatically swipe right for you. Very simply built, can be extended with more functionality.
 
 ## Getting Started
 
@@ -25,10 +25,10 @@ Update to the latest version or get the current one from - https://www.google.co
 ```
 ---
 
-selenium
+Libraries and Packages
 
 ```
-pip install selenium
+pip install -r requirements.txt
 ```
 ---
 
@@ -37,13 +37,19 @@ pip install selenium
 A step by step series of examples that tell you how to run a bot
 
 ```
+Download project
+```
+```
+Install requirements
+```
+```
 Fill in your Facebook login details in the secrets.py file
 ```
----
-Run a bot
-
 ```
-python tinder_bot.py
+Open terminal with choosen folder "Tinder-Bot>"
+```
+```
+Type "python tinder_bot.py", to run a bot
 ```
 ---
 ## Built With
