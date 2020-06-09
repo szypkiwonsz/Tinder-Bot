@@ -16,7 +16,7 @@ class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
 
         # First try with hidden Facebook login button.
         self.more_option_btn_click()
-        sleep(1)
+        sleep(2)
         try:
             self.more_option_fb_btn_click()
             try:
@@ -71,7 +71,9 @@ class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
             except Exception:
                 try:
                     sleep(0.4)
-                    self.keep_going()
+                    self.send_message('<3')
+                    ''' Option without sending message '''
+                    # self.keep_going()
                 except Exception:
                     sleep(0.4)
                     self.popup_start_screen()
