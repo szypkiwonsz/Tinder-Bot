@@ -54,7 +54,7 @@ class TinderBot(TinderLogin, FacebookLogin, TinderPopups, TinderFunctions):
         self.driver.switch_to.window(base_window)
 
     def tinder(self):
-        sleep(6)
+        sleep(5)
         try:
             self.tinder_localization()
         except Exception:
